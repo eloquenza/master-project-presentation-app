@@ -4,12 +4,14 @@
     @s.fullName @s.mail @s.matNr
 }
 
-@if(students.isEmpty) {
-No students added yet!
-} else {
-<ul>
-@for(student <- students) {
-    <li>@display(student)</li>
-}
-</ul>
+@main("View students") {
+    @if(students.isEmpty) {
+        No students added yet!
+    } else {
+        <ul>
+        @for(student <- students) {
+            <li>@display(student)</li>
+        }
+        </ul>
+    }
 }
