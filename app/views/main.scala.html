@@ -22,8 +22,10 @@
             <h1>@wrapperTitle</h1>
         </div>
         </section>
-        @* And here's where we render the `Html` object containing
-         * the page content. *@
-        @content
+        <div id="content" class="wrapper doc">
+            @* And here's where we render the `Html` object containing
+            * the page content. *@
+            @content
+        </div>
     </body>
 </html>
