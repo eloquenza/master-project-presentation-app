@@ -5,6 +5,7 @@
 @main("Welcome to Play", "SPQC - Add a student") {
     @content("Add student form") {
         @helper.form(action = routes.StudentController.add) {
+            @CSRF.formField
 
             @helper.inputText(myForm("firstName"))
             @helper.inputText(myForm("lastName"))

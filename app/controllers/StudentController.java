@@ -59,6 +59,7 @@ public class StudentController extends Controller {
         return ok(studentsAdd.render(studentForm));
     }
 
+    @play.filters.csrf.RequireCSRFCheck
     public Result add() {
         final Form<Student> form = studentForm.bindFromRequest();
 
@@ -71,4 +72,6 @@ public class StudentController extends Controller {
         }
         return redirect(routes.StudentController.showStudents());
     }
+
+    // http://localhost:9000/students/add?firstName=attacker&lastName=attacking&mail=your@website.com&matNr=1337
 }
