@@ -28,8 +28,9 @@ public class StudentController extends Controller {
     @Inject
     public StudentController(FormFactory formFactory) {
         this.studentList = new ArrayList<>();
-        studentForm = formFactory.form(Student.class);
         this.formFactory = formFactory;
+
+        studentForm = formFactory.form(Student.class);
     }
 
     /**
