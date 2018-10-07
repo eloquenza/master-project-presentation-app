@@ -4,18 +4,14 @@
  * argument is an `Html` object containing the body of the page.
  *@
 @main("Welcome to SPQC") {
-
-        <article>
-            <h1>Welcome to our small presentation application!</h1>
-            <p>
-                Here, you can add a new student or see a list of all students by clicking the corresponding button below or with the link provided on the sidebar.
-            </p>
-            <a href="@routes.StudentController.addStudent" class="btn btn-default">
-                Add a new student
-            </a>
-            <a href="@routes.StudentController.showStudents" class="btn btn-default">
-                List of all students
-            </a>
-        </article>
-
+    <h1>Welcome to our small presentation application!</h1>
+    <p>
+        Here, you can add a new student or see a list of all students by clicking the corresponding button below or with the link provided on the sidebar.
+    </p>
+    <a href="@routes.StudentController.addStudent" class="btn btn-default">
+        Add a new student
+    </a>
+    <a href="@routes.StudentController.showStudents" class="btn btn-default">
+        List of all students
+    </a>
 }
