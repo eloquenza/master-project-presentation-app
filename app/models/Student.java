@@ -21,6 +21,6 @@ public class Student {
     }
 
     public String fullName() {
-        return lastName ", " + firstName;
+        return lastName + ", " + firstName;
     }
 }
