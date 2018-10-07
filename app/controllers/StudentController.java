@@ -35,6 +35,14 @@ public class StudentController extends Controller {
 
         studentForm = formFactory.form(Student.class);
         logger = play.Logger.of(getClass());
+
+        fillStudentsList();
+    }
+
+    private void fillStudentsList() {
+        studentList.add(new Student("Dennis", "Grabowski", "test@test.com", 12));
+        studentList.add(new Student("Marvin", "Bertram", "test123@test.com", 123));
+        studentList.add(new Student("Dummy", "DummyLast", "dummy@dummy.com", 1234));
     }
 
     /**
