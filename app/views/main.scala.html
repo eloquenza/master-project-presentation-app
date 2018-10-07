@@ -4,7 +4,7 @@
  * two arguments, a `String` for the title of the page and an `Html`
  * object to insert into the body of the page.
  *@
-@(title: String)(content: Html)
+@(title: String, wrapperTitle: String = "Student Print Quota Checker")(content: Html)
 
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +19,7 @@
     <body>
         <section id="top">
             <div class="wrapper">
-            <h1>Student Print Quota Checker</h1>
+            <h1>@wrapperTitle</h1>
         </div>
         </section>
         @* And here's where we render the `Html` object containing
