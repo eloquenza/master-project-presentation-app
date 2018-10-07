@@ -3,7 +3,6 @@ package controllers;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.data.*;
-import services.Counter;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
