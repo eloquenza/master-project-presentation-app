@@ -3,6 +3,7 @@ package controllers;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.data.*;
+import play.Logger.*;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -25,12 +26,15 @@ public class StudentController extends Controller {
     private FormFactory formFactory;
     private Form<Student> studentForm;
 
+    private ALogger logger;
+
     @Inject
     public StudentController(FormFactory formFactory) {
         this.studentList = new ArrayList<>();
         this.formFactory = formFactory;
 
         studentForm = formFactory.form(Student.class);
+        logger = play.Logger.of(getClass());
     }
 
     /**
@@ -48,8 +52,15 @@ public class StudentController extends Controller {
     }
 
     public Result add() {
-        Student s = studentForm.bindFromRequest().get();
-        studentList.add(s);
+        final Form<Student> form = studentForm.bindFromRequest();
+
+        if (form.hasErrors()) {
+            logger.error("errors = {}", form.errors());
+        } else {
+            Student s = form.bindFromRequest().get();
+            logger.info("Student added {}.", s);
+            studentList.add(s);
+        }
         return redirect(routes.StudentController.showStudents());
     }
 }
