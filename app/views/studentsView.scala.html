@@ -10,23 +10,29 @@
 }
 
 @main("View students", "SPQC - View list of students") {
-    @if(students.isEmpty) {
-        No students added yet!
-    } else {
-    <div class="table-responsive-sm">
-        <table class="table table-hover table-bordered">
-            <thead class="thead-light">
-                <th scope="col">#</th>
-                <th scope="col">Student name</th>
-                <th scope="col">E-Mail</th>
-                <th scope="col">Student number</th>
-            </thead>
-            <tbody>
-            @for(index <- 0 until students.size) {
-                @tablerow(index, students(index))
+    @defining("List of students") { title =>
+        @if(students.isEmpty) {
+            @content(title) {
+                No students added yet!
             }
-            </tbody>
-        </table>
-    </div>
+        } else {
+            @content(title) {
+                <div class="table-responsive">
+                    <table class="table table-hover table-bordered">
+                        <thead class="thead-dark">
+                            <th scope="col">#</th>
+                            <th scope="col">Student name</th>
+                            <th scope="col">E-Mail</th>
+                            <th scope="col">Student number</th>
+                        </thead>
+                        <tbody>
+                            @for(index <- 0 until students.size) {
+                                @tablerow(index, students(index))
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+        }
     }
 }
