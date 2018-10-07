@@ -1,0 +1,30 @@
+@(myForm: Form[Student])
+@import helper._
+@implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.render)}
+
+<html>
+<head>
+    <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("lib/bootstrap/css/bootstrap.min.css")">
+</head>
+<body>
+<div class="container">
+    <div class="well">
+        <h3>Update Product</h3>
+            @helper.form(action = routes.StudentController.add) {
+
+                @helper.inputText(myForm("firstName"))
+                @helper.inputText(myForm("lastName"))
+                @helper.inputText(myForm("mail"))
+                @helper.inputText(myForm("matNr"))
+
+                <div class="control-group">
+                    <div class="controls">
+                    <button id="update" class="btn btn-primary" type="submit">Submit student info</button>
+                    </div>
+                </div>
+        }
+    </div>
+</div>
+</body>
+</html>
+

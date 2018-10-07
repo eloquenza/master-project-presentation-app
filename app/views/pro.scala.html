@@ -1,0 +1,15 @@
+@(product: models.Product, customer: models.Customer)
+
+@display(p: Product) = {
+    @p.name ($@p.price)
+}
+
+<ul>
+    @display(product)
+</ul>
+
+@defining(customer.firstName + " " + customer.lastName) { fullName =>
+    <div>Hello @fullName</div>
+}
+
+<div>Hello @customer.fullName</div>

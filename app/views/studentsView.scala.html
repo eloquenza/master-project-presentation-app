@@ -1,0 +1,15 @@
+@(students: List[Student])
+
+@display(s: Student) = {
+    @s.fullName @s.mail @s.matNr
+}
+
+@if(students.isEmpty) {
+No students added yet!
+} else {
+<ul>
+@for(student <- students) {
+    <li>@display(student)</li>
+}
+</ul>
+}
