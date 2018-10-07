@@ -3,22 +3,14 @@
 @implicitFieldConstructor = @{ FieldConstructor(twitterBootstrapInput.render)}
 
 @main("Welcome to Play", "SPQC - Add a student") {
-    <div class="container">
-        <div class="well">
-            <h3>Add student</h3>
-            @helper.form(action = routes.StudentController.add) {
+<h3>Add student</h3>
+@helper.form(action = routes.StudentController.add) {
 
-                @helper.inputText(myForm("firstName"))
-                @helper.inputText(myForm("lastName"))
-                @helper.inputText(myForm("mail"))
-                @helper.inputText(myForm("matNr"))
+    @helper.inputText(myForm("firstName"))
+    @helper.inputText(myForm("lastName"))
+    @helper.inputText(myForm("mail"))
+    @helper.inputText(myForm("matNr"))
 
-                <div class="control-group">
-                    <div class="controls">
-                        <button id="update" class="btn btn-primary" type="submit">Submit student info</button>
-                    </div>
-                </div>
-            }
-        </div>
-    </div>
+    <button class="btn btn-primary" type="submit">Submit student info</button>
+}
 }
