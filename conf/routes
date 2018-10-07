@@ -8,6 +8,6 @@ GET     /                           controllers.HomeController.index
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 
-GET     /students/show              controllers.StudentController.showStudents
-GET     /students/add               controllers.StudentController.addStudent
-POST    /students/add               controllers.StudentController.add
+GET     /students                   controllers.StudentController.showStudents
+GET     /students/form              controllers.StudentController.addStudent
+GET     /students/add               controllers.StudentController.add
