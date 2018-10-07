@@ -1,17 +1,32 @@
 @(students: List[Student])
 
-@display(s: Student) = {
-    @s.fullName @s.mail @s.matNr
+@tablerow(rowNr: Integer, s: Student) = {
+<tr>
+    <th scope="row">@rowNr</th>
+    <td>@s.fullName</td>
+    <td>@s.mail</td>
+    <td>@s.matNr</td>
+</tr>
 }
 
 @main("View students", "SPQC - View list of students") {
     @if(students.isEmpty) {
         No students added yet!
     } else {
-        <ul>
-        @for(student <- students) {
-            <li>@display(student)</li>
-        }
-        </ul>
+    <div class="table-responsive-sm">
+        <table class="table table-hover table-bordered">
+            <thead class="thead-light">
+                <th scope="col">#</th>
+                <th scope="col">Student name</th>
+                <th scope="col">E-Mail</th>
+                <th scope="col">Student number</th>
+            </thead>
+            <tbody>
+            @for(index <- 0 until students.size) {
+                @tablerow(index, students(index))
+            }
+            </tbody>
+        </table>
+    </div>
     }
 }
