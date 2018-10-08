@@ -1,11 +1,12 @@
-@*Parameter*@
-
+@(students: List[Student])
 
 @tablerow(rowNr: Integer, s: Student) = {
-@*Zeilen*@
-
-
-
+<tr>
+    <td>@rowNr</td>
+    <td>@s.fullName</td>
+    <td>@s.mail</td>
+    <td>@s.matNr</td>
+</tr>
 }
 
 @main("View students", "SPQC - View list of students") {
@@ -25,9 +26,9 @@
                             <th scope="col">Student number</th>
                         </thead>
                         <tbody>
-                            @** Studenten ausgeben**@
-
-
+                            @for(index <- 0 until students.size) {
+                                @tablerow(index, students(index))
+                            }
                         </tbody>
                     </table>
                 </div>
